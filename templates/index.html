@@ -2,29 +2,27 @@
 <html>
 <head>
     <title>Iris KNN 분류기</title>
-    
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
+<h1>붓꽃 품종 예측 (KNN)</h1>
 <body>
     <div class="container">
-        <h1>(KNN)</h1>
-        
         <form method="post">
             <div class="form-group">
-                <label>Sepal Length (꽃받침 길이):</label>
+                <label>Sepal Length</label>
                 <input type="number" step="0.01" name="sepal_length" required>
             </div>
             <div class="form-group">
-                <label>Sepal Width (꽃받침 너비):</label>
+                <label>Sepal Width</label>
                 <input type="number" step="0.01" name="sepal_width" required>
             </div>
             <div class="form-group">
-                <label>Petal Length (꽃잎 길이):</label>
+                <label>Petal Length</label>
                 <input type="number" step="0.01" name="petal_length" required>
             </div>
             <div class="form-group">
-                <label>Petal Width (꽃잎 너비):</label>
+                <label>Petal Width</label>
                 <input type="number" step="0.01" name="petal_width" required>
             </div>
             <button type="submit">예측</button>
@@ -33,11 +31,10 @@
         {% if prediction %}
             <div class="result">
                 <h2>예측 결과: {{ prediction }}</h2>
-                
                 {% if prediction == 'setosa' %}
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Irissetosa1.jpg" alt="Iris Setosa" class="result-image">
                 {% elif prediction == 'versicolor' %}
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Iris_versicolor_3.jpg/640px-Iris_versicolor_3.jpg" alt="Iris Versicolor" class="result-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Iris_versicolor_3.jpg/800px-Iris_versicolor_3.jpg" alt="Iris Versicolor" class="result-image">
                 {% elif prediction == 'virginica' %}
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Iris_virginica.jpg/640px-Iris_virginica.jpg" alt="Iris Virginica" class="result-image">
                 {% else %}
