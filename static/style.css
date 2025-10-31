@@ -1,34 +1,48 @@
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Noto Sans KR', Arial, sans-serif;
     margin: 0;
-    padding: 40px;
-    background-color: #f4f7f6;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+h2 {
+    color: #34495e;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-top: 0;
 }
 
 .container {
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
     width: 100%;
-    max-width: 500px;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-
+    max-width: 900px;
 }
 
-h1 {
-    color: #333;
-    text-align: center;
-}
-
-form {
-    width: 100%;
+.card {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group {
@@ -38,54 +52,90 @@ form {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
+    font-weight: 500;
     color: #555;
 }
 
 .form-group input {
     width: 100%;
-    padding: 10px;
-    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+    padding: 12px;
+    box-sizing: border-box;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
 button {
     width: 100%;
-    padding: 12px;
-    background-color: #007bff;
+    padding: 14px;
+    background: #3498db;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
+    transform: translateY(-2px);
 }
 
-.result {
-    width: 100%;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+button:active {
+    transform: translateY(0);
+}
+
+.result-card {
     text-align: center;
 }
 
-.result h2 {
-    color: #007bff;
+.result h3 {
+    font-size: 22px;
+    color: #333;
     margin-top: 0;
-    text-transform: capitalize; /* 첫 글자를 대문자로 */
+}
+
+.result .prediction-name {
+    color: #3498db;
+    font-weight: 700;
+    text-transform: capitalize;
 }
 
 .result-image {
     width: 100%;
     max-width: 400px;
     height: auto;
-    border-radius: 8px;
-    margin-top: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #eee;
+}
+
+.placeholder {
+    font-size: 16px;
+    color: #777;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-weight: 500;
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch; 
+    }
+
 }
